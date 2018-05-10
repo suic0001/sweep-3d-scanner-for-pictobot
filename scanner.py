@@ -121,16 +121,15 @@ class Scanner(object):
             # remove readings from unreliable distances
             scan_utils.remove_distance_extremes(
                 scan, self.settings.get_min_range_val(), self.settings.get_max_range_val())
-"""Below is the origin function to remove the reading from deadzone, which is the 90 degrees region 
-at the bottom of Lidar. Now we add a function in scan.utils.py called: remain_angular_window to 
-remain the angular window between 29 to 135 degree 
+            """Below is the origin function to remove the reading from deadzone, which is the 90 degrees region 
+            at the bottom of Lidar. Now we add a function in scan.utils.py called: remain_angular_window to 
+            remain the angular window between 29 to 135 degree 
             
 			# Remove readings from the deadzone
             scan_utils.remove_angular_window(
                scan, self.settings.get_deadzone(), 360 - self.settings.get_deadzone())
-"""
-            scan_utils.remain_angular_window(
-				scan, 29,135)
+            """
+            scan_utils.remain_angular_window(scan, 29,135)
 
             if valid_scan_index >= num_sweeps - 2:
                 # Avoid redundant data in last few partially overlapping scans
